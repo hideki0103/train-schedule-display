@@ -1,32 +1,22 @@
-const stationData = {
-    "京急川崎": {
-        "上り": [
-            { destination: "品川", time: "09:55", platform: "1番線" },
-            { destination: "横浜", time: "10:00", platform: "1番線" },
-            { destination: "八丁畷", time: "10:05", platform: "1番線" }
-        ],
-        "下り": [
-            { destination: "京急蒲田", time: "09:52", platform: "2番線" },
-            { destination: "雑色", time: "09:55", platform: "2番線" },
-            { destination: "川崎", time: "10:05", platform: "2番線" }
-        ]
-    }
-};
+// 初期駅名
+let currentStation = "初期駅名";
 
-function displaySchedule() {
-    const scheduleDiv = document.getElementById('schedule');
-    scheduleDiv.innerHTML = '';
-
-    const upLine = stationData["京急川崎"]["上り"];
-    const downLine = stationData["京急川崎"]["下り"];
-
-    upLine.forEach(train => {
-        scheduleDiv.innerHTML += `<div class="schedule-item">上り: ${train.destination} ${train.time} (${train.platform})</div>`;
-    });
-
-    downLine.forEach(train => {
-        scheduleDiv.innerHTML += `<div class="schedule-item">下り: ${train.destination} ${train.time} (${train.platform})</div>`;
-    });
+// 駅名を表示する関数
+function updateStationDisplay() {
+    document.getElementById("stationDisplay").innerText = "現在の駅: " + currentStation;
 }
 
-displaySchedule();
+// ボタンクリックイベントの設定
+document.getElementById("changeStationButton").addEventListener("click", function() {
+    var newStation = document.getElementById("stationInput").value;
+    if (newStation) {
+        currentStation = newStation; // 駅名を更新
+        console.log("指定駅が変更されました: " + currentStation);
+        updateStationDisplay(); // 表示を更新
+    } else {
+        alert("駅名を入力してください。");
+    }
+});
+
+// 初期表示の更新
+updateStationDisplay();
