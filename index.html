@@ -4,13 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="styles.css">
-    <title>電車時刻表示</title>
+    <title>駅のスケジュール</title>
 </head>
 <body>
-    <div id="display-area">
-        <h1>京急川崎駅の次発電車</h1>
-        <div id="schedule"></div>
-    </div>
+    <h1>指定駅のスケジュール</h1>
+
+    <!-- 駅名表示部分 -->
+    <div id="stationDisplay">現在の駅: 初期駅名</div>
+
+    <!-- 駅を変更するためのボタンと入力フィールド -->
+    <input type="text" id="stationInput" placeholder="新しい駅名を入力" />
+    <button id="changeStationButton">指定駅を変更</button>
+
     <script src="script.js"></script>
 </body>
 </html>
